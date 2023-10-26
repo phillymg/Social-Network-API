@@ -88,7 +88,7 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const getRandomName = () =>
     `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
 
-// Function to generate random videos that we can add to the database. Includes video responses.
+// Function to generate random thoughts that we can add to the database. Includes thought reactions.
 const getRandomThoughts = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
@@ -102,7 +102,7 @@ const getRandomThoughts = (int) => {
     return results;
 };
 
-// Create the responses that will be added to each video
+// Create the reaction that will be added to each thought
 const getThoughtReactions = (int) => {
     if (int === 1) {
         return getRandomArrItem(possibleResponses);
