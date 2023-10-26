@@ -55,28 +55,22 @@ const names = [
     ``,
 ];
 
-const descriptionsBodies = [
-    'How to disagree with someone',
-    'iPhone review',
-    'how-to video',
-    'video essay on the history of video games',
-    'How to make money on the App Store',
-    'Learn NextJS in five minutes (Not clickbate)',
-    'Movie trailer',
+const possibleThoughts = [
+    'I do not like pizza',
+    'I wish I was young again',
+    'I want more money',
+    'What does it mean to be human',
+    'I like movies',
     'Hello world',
-    'Another possible solution to the algorithm',
-    'Apology video',
-    'Submission for startup pitch',
+    'Random Thought 123',
 ];
 
-const possibleResponses = [
+const possibleReactions = [
     'I disagree!',
-    'I tried your algorithm, here were the results',
+    'I agree!',
     'This was awesome',
-    'Thank you for the great content',
-    'Please check out my thought response',
-    'Like and subscribe to my channel please',
-    'Reply: The side effects of in app purchases on digital marketplaces',
+    'Thank you for the great thought',
+    'Random Reaction 123',
 ];
 
 const users = [];
@@ -94,8 +88,7 @@ const getRandomThoughts = (int) => {
     for (let i = 0; i < int; i++) {
         results.push({
             published: Math.random() < 0.5,
-            description: getRandomArrItem(descriptionsBodies),
-            advertiserFriendly: Math.random() < 0.5,
+            description: getRandomArrItem(possibleThoughts),
             responses: [...getThoughtReactions(3)],
         });
     }
@@ -105,12 +98,12 @@ const getRandomThoughts = (int) => {
 // Create the reaction that will be added to each thought
 const getThoughtReactions = (int) => {
     if (int === 1) {
-        return getRandomArrItem(possibleResponses);
+        return getRandomArrItem(possibleReactions);
     }
     let results = [];
     for (let i = 0; i < int; i++) {
         results.push({
-            responseBody: getRandomArrItem(possibleResponses),
+            responseBody: getRandomArrItem(possibleReactions),
             username: getRandomName(),
         });
     }

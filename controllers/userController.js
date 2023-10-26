@@ -13,13 +13,15 @@ module.exports = {
         try {
             const user = await User.findOne({ _id: req.params.userId })
                 .select('-__v')
-                .populate('posts');
+                .populate('friends')
+                .populate('thoughts');
 
             if (!user) {
                 return res.status(404).json({ message: 'No user with that ID' });
             }
 
             res.json(user);
+            console.log("user");
         } catch (err) {
             res.status(500).json(err);
         }
