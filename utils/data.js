@@ -1,4 +1,4 @@
-const names = [
+const usernames = [
     'Aaran',
     'Aaren',
     'Aarez',
@@ -52,7 +52,6 @@ const names = [
     'Zubair',
     'Zubayr',
     'Zuriel',
-    ``,
 ];
 
 const possibleThoughts = [
@@ -80,16 +79,16 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Gets a random full name
 const getRandomName = () =>
-    `${getRandomArrItem(names)} ${getRandomArrItem(names)}`;
+    `${getRandomArrItem(usernames)}`;
 
 // Function to generate random thoughts that we can add to the database. Includes thought reactions.
 const getRandomThoughts = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
         results.push({
-            published: Math.random() < 0.5,
-            description: getRandomArrItem(possibleThoughts),
-            responses: [...getThoughtReactions(3)],
+            username: getRandomName(),
+            thoughtText: getRandomArrItem(possibleThoughts),
+            reactions: [...getThoughtReactions(3)],
         });
     }
     return results;
@@ -103,7 +102,7 @@ const getThoughtReactions = (int) => {
     let results = [];
     for (let i = 0; i < int; i++) {
         results.push({
-            responseBody: getRandomArrItem(possibleReactions),
+            reactionBody: getRandomArrItem(possibleReactions),
             username: getRandomName(),
         });
     }
