@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const dayjs = require('dayjs');
+const reactionSchema = require('./Reaction');
 
 const thoughtSchema = new Schema({
     thoughtText: {
@@ -17,10 +18,7 @@ const thoughtSchema = new Schema({
         required: true,
     },
     reactions: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'reaction', // Should match the model name, which is 'Reaction'
-        },
+        reactionSchema
     ],
 });
 
